@@ -8,3 +8,10 @@ menu.onclick = () =>{
    // This code below toggles the navbar visibility
    navbar.classList.toggle('active');
 }
+// When the use scrolls the page
+window.onscroll = () =>{
+   // Making sure the menu icon goes back to normal
+   menu.classList.remove('fa-times');
+   // Making sure to hide the navbar if it was opened
+   navbar.classList.remove('active');
+}
