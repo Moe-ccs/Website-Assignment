@@ -35,3 +35,7 @@ def search():
     else:
         # Outputs a message telling the user that the location they entered is not available
         return jsonify({"success": False, "message": "Not available in this location. Try another area."})
+# The code below runs the app if this file is being used directly
+if __name__ == '__main__':
+    # This helps detect any errors while running the code
+    app.run(debug=True)
