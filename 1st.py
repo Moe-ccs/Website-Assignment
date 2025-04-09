@@ -25,3 +25,13 @@ def home():
 def search():
     # Geting the location entered by the user
     location = request.json.get("location")
+# Checking if we have prices for the location entered
+    if location in coffee_shops:
+        coffee_price = coffee_shops[location]["coffee_price"]
+        dessert_price = coffee_shops[location]["dessert_price"]
+        total_price = coffee_price + dessert_price
+        # Sending back a total price message for the user
+        return jsonify({"success": True, "message": f"In {location}, coffee and dessert cost approximately £{total_price:.2f}."})
+    else:
+        # Outputs a message telling the user that the location they entered is not available
+        return jsonify({"success": False, "message": "Not available in this location. Try another area."})
