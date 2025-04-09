@@ -16,3 +16,12 @@ coffee_shops = {
     "Notting Hill": {"coffee_price": 4.5, "dessert_price": 6.5},
     "Greenwich": {"coffee_price": 4, "dessert_price": 5.8},
 }
+# The code below shows the main page when someone visits the website
+@app.route('/')
+def home():
+    return render_template("1st.html")  # Make sure your HTML file is named correctly
+# The code below is responsible to handle the search requests from the user
+@app.route('/search', methods=['POST'])
+def search():
+    # Geting the location entered by the user
+    location = request.json.get("location")
